@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reading List</title>
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Reading List/Personal Book Library</h1>
+  <p>Explore your personal reading journey with our streamlined book library app. Easily toggle between marking books as read or in-progress, but remember to uncheck one before selecting the other. This intuitive tool simplifies tracking your reading adventures with just a few clicks.</p>
+  <ul class="books">
+  <% for(var i=0; i<books.length; i++) { %>
+    <li class="book <%= books[i].completed ? 'completed' : '' %> <%= books[i].inProgress ? 'in-progress-state' : '' %>">
+      <span class="title"><%= books[i].title %></span>
+      <span class="author"><%= books[i].author %></span>
+      <div class="description"><%= books[i].description %></div>
+      <span class="book-actions">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <!-- added this below -->
+        <i class="fa fa-hourglass-half in-progress" aria-hidden="true"></i> 
+        <i class="fa fa-trash" aria-hidden="true"></i>
+      </span>
+    </li>
+  <% } %>
+  </ul>
+
+  <h2>Add a Book</h2>
+  <form action="/books" method="POST">
+    <input type="text" placeholder="Book title" name="title">
+    <input type="text" placeholder="Author" name="author">
+    <textarea placeholder="Description" name="description"></textarea>
+    <button type="submit">Add Book</button>
+  </form>
+  </div>
+  
+
+  <script src="main.js"></script>
+</body>
+</html>
