@@ -49,5 +49,3 @@ Contributions to this project are welcome:
 5. Create a new Pull Request.
 
 ## License
-
-[Your chosen license here]
